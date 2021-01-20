@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>component and props</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <div id="root"></div>
+
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+        let Card = (props)=> {
+            return <> 
+                <div className = "outer-card"> 
+                    <img src={props.img} alt="" />
+                    <div className = "details">
+                        <h2>{props.title}</h2>
+                        <h4>{props.sub}</h4>
+                        <p>{props.details}</p>
+                    </div>
+                </div>
+            </>
+        }
+
+        let cards = <>
+
+            <div className="container text-center">
+                <h1>All Articles</h1>
+                <h3 className = "sub-heading">Collections of best articles on startup</h3>
+            </div>
+
+            <div className = "container card-collections">
+                <Card 
+            img = "https://images.pexels.com/photos/4101555/pexels-photo-4101555.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" 
+            title = "City Lights in New York"
+            sub = "The city that never sleeps"
+            details = "New York the largest city in U.S., is an architectural marvel with plenty of historic monuments, magnificent buildings and countless dazzling skyscrappers"
+            />
+            
+            <Card 
+            img = "https://images.pexels.com/photos/4101555/pexels-photo-4101555.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" 
+            title = "City Lights in New York"
+            sub = "The city that never sleeps"
+            details = "New York the largest city in U.S., is an architectural marvel with plenty of historic monuments, magnificent buildings and countless dazzling skyscrappers"
+            />
+
+            <Card 
+            img = "https://images.pexels.com/photos/4101555/pexels-photo-4101555.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" 
+            title = "City Lights in New York"
+            sub = "The city that never sleeps"
+            details = "New York the largest city in U.S., is an architectural marvel with plenty of historic monuments, magnificent buildings and countless dazzling skyscrappers"
+            />
+            </div>
+            </>
+
+        ReactDOM.render(cards,document.getElementById("root"));
+
+    </script>
+</body>
+</html>
