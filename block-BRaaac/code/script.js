@@ -20,22 +20,20 @@ function handler(event) {
 function createUi(arr) {
     ul.innerHTML = '';
     arr.forEach(element => {
-        let li = ele("li",undefined,element.name);
-        // let li = document.createElement("li");
-        // li.innerText = element.name;
-        let a = ele("a",undefined,element.toWatch ? "watched" : "Towatch");
-        // a.innerText = element.toWatch ? "watched" : "Towatch";
-        a.addEventListener("click",watched)
-        li.append(a);
+        let li = ele("li",{},element.name,ele("a",{},element.toWatch ? "watched" : "Towatch"));
         ul.append(li);
     });
 }
 
+ul.addEventListener('click',watched);
+
 function watched(event) {
-    let index = [...document.querySelectorAll('li')].indexOf(event.target.parentElement);
-    userInfo[index].toWatch = !userInfo[index].toWatch;
-    localStorage.setItem('userInfo',JSON.stringify(userInfo));
-    createUi(userInfo);
+    if(event.target.tagName === "A") {
+        let index = [...document.querySelectorAll('li')].indexOf(event.target.parentElement);
+        userInfo[index].toWatch = !userInfo[index].toWatch;
+        localStorage.setItem('userInfo',JSON.stringify(userInfo));
+        createUi(userInfo);
+    }
 }
 
 createUi(userInfo);
