@@ -23,8 +23,8 @@ function ButtonComponents() {
 
 function Button(props) {
     let size = props.size || "medium";
-    let color = props.color || "blue";
-    let type = props.type || "primary";
+    let color = props.color || "primary";
+    let type = props.type || "button";
     let handleClick = props.onClickHandler;
 
   return (
